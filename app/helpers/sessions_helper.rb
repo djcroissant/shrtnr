@@ -12,6 +12,10 @@ module SessionsHelper
     current_user && !current_user.uid.blank?
   end
 
+  def can_tweet?
+    current_user && !current_user.twitter_token.blank?
+  end
+
   def authentication_required
     unless signed_in?
       store_location

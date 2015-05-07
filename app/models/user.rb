@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :links
 
   validates_uniqueness_of :email
+  validates_uniqueness_of :api_key
 
   def self.from_twitter(auth)
     create! do |user|
