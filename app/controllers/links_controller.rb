@@ -2,8 +2,7 @@ class LinksController < ApplicationController
   include LinksHelper
   include SessionsHelper
 
-  before_action :find_link, only: [:show, :redirection]
-  after_action :create_tweet, only: [:create]
+  before_action :find_link, only: [:show, :tweet, :redirection]
 
   def create
     url = Link.find_by_long_url(params[:link][:long_url])
@@ -24,6 +23,9 @@ class LinksController < ApplicationController
     end
 
     if @link.save
+      if can_tweet? && params[:link][:tweet] == '1'
+        create_tweet
+      end
       redirect_to link_path(@link.short_url), notice: "URL added"
     else
       flash[:error] = "Your URL was not valid"
@@ -32,6 +34,11 @@ class LinksController < ApplicationController
   end
 
   def show
+  end
+
+  def tweet
+    # create_tweet
+    respond_to :js
   end
 
   def redirection
@@ -51,7 +58,7 @@ class LinksController < ApplicationController
     end
 
     def create_tweet
-      if current_user && signed_in_through_twitter? && params[:link][:tweet] == '1'
+      if current_user && can_tweet?
         text = "Check out my new link: #{full_url(@link)}"
         TwitterJob.perform_later(current_user.id, text)
       end

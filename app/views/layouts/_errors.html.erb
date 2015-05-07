@@ -1,4 +1,4 @@
-<div class="container">
+<div id="alerts" class="container">
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == "notice" ? "success" : "danger" %>">
       <%= msg %>

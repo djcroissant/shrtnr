@@ -49,6 +49,13 @@ describe LinksController, type: :controller do
     end
   end
 
+  describe "#tweet" do
+    it "is successful" do
+      xhr :get, :tweet, id: link.short_url
+      expect(response).to be_success
+    end
+  end
+
   describe "#redirection" do
     it "is successful" do
       get :redirection, id: link.short_url

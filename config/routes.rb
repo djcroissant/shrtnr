@@ -17,9 +17,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get '/settings' => 'settings#index', as: :settings
-  post '/settings' => 'settings#update'
+  put '/settings/regenerate_key' => 'settings#regenerate_key'
+  put '/settings' => 'settings#update'
 
-  resources :links, only: [:create, :show, :redirection, :destroy]
+  resources :links, only: [:create, :show, :redirection, :destroy] do
+    member do
+      get 'tweet' => 'links#tweet'
+    end
+  end
 
   get '/:id' => 'links#redirection', as: :redirect_url
 
