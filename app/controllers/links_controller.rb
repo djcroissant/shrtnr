@@ -37,7 +37,7 @@ class LinksController < ApplicationController
   end
 
   def tweet
-    # create_tweet
+    create_tweet
     respond_to :js
   end
 

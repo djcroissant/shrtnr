@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   put '/settings/regenerate_key' => 'settings#regenerate_key'
   put '/settings' => 'settings#update'
 
-  resources :links, only: [:create, :show, :redirection, :destroy] do
+  resources :links, only: [:create, :show, :destroy] do
     member do
       get 'tweet' => 'links#tweet'
     end

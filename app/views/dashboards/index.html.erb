@@ -17,8 +17,14 @@
       <tr>
         <td><%= link.clicks %></td>
         <td><%= link.long_url %></td>
-        <td><%= link_to full_url(link), link_path(link.short_url) %></td>
-        <td><%= link_to "Tweet this", tweet_link_path(link.short_url), remote: true, id: 'tweet_link' %></td>
+        <td>
+          <%= link_to full_url(link), link_path(link.short_url),
+                                      data: { no_turbolink: true } %>
+        </td>
+        <td>
+          <%= link_to "Tweet this", tweet_link_path(link.short_url),
+              remote: true, id: 'tweet_link' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
