@@ -19,7 +19,7 @@ class SettingsController < ApplicationController
   def regenerate_key
     current_user.generate_api_key
     current_user.save
-    @updated_key = "http://shrtnr.com/api/v1/links/create?api_key=#{current_user.api_key}&url=%@"
+    @updated_key = "http://uwshrtnr.herokuapp.com/api/v1/links/create?api_key=#{current_user.api_key}&url=%@"
     respond_to :js
   end
 

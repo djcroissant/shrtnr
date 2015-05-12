@@ -24,8 +24,8 @@
       <div class="panel-body">
         <h4 class="text-center">To use with other apps</h4>
         <h6 class="text-center">Copy & Paste the following into your app:</h6>
-        <pre id="api-key" class="text-center">http://shrtnr.com/api/v1/links/create?api_key=<%= @settings.api_key %>&url=%@</pre>
-        <%= button_to 'Regenerate Key', settings_regenerate_key_path, remote: true, method: :put, class: "btn-lg btn-primary btn-block" %>
+        <pre id="api-key" class="text-center">http://uwshrtnr.herokuapp.com/api/v1/links/create?api_key=<%= @settings.api_key %>&url=%@</pre>
+        <%= button_to 'Regenerate Key', settings_regenerate_key_path, remote: true, method: :put, class: "btn-lg btn-primary btn-block", data: {confirm: "Are you sure?"} %>
       </div>
     </div>
   </div>

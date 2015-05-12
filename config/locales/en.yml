@@ -20,5 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  domain: "shrt.nr/"
+  domain: "uwshrtnr.herokuapp.com/"
   name: "Shortener"
