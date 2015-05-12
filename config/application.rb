@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 # Configure Twitter
 if Rails.env == 'production'
-  TWITTER = { client_id: ENV['client_id'], client_secret: ENV['client_secret'] }
+  TWITTER = { TWITTER_CLIENT_ID: ENV['TWITTER_CLIENT_ID'],
+              TWITTER_CLIENT_SECRET: ENV['TWITTER_CLIENT_SECRET'] }
 else
   TWITTER = YAML.load(File.read(File.expand_path('../twitter.yml', __FILE__)))
   TWITTER.merge! TWITTER.fetch(Rails.env, {})
@@ -17,7 +18,7 @@ end
 
 # Configure Mandrill
 if Rails.env == 'production'
-  MANDRILL = { username: ENV['mandrill_username'], password: ENV['mandrill_password'] }
+  MANDRILL = { username: ENV['MANDRILL_USER'], password: ENV['MANDRILL_PASS'] }
 else
   MANDRILL = YAML.load(File.read(File.expand_path('../mandrill.yml', __FILE__)))
   MANDRILL.merge! MANDRILL.fetch(Rails.env, {})
