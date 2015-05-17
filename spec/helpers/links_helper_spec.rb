@@ -5,7 +5,8 @@ describe LinksHelper do
     let(:link) { create(:link) }
 
     it "returns a full url" do
-      expect(full_url(link)).to eq "shrt.nr/#{link.short_url}"
+      actual = "uwshrtnr.herokuapp.com/#{link.short_url}"
+      expect(full_url(link)).to eq actual
     end
   end
 end
