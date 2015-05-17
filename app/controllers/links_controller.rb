@@ -60,7 +60,8 @@ class LinksController < ApplicationController
     def create_tweet
       if current_user && can_tweet?
         text = "Check out my new link: #{full_url(@link)}"
-        TwitterJob.perform_later(current_user.id, text)
+        user = User.find(current_user)
+        user.tweet(text)
       end
     end
 end

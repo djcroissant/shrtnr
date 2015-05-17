@@ -18,7 +18,8 @@ end
 
 # Configure Mandrill
 if Rails.env == 'production'
-  MANDRILL = { username: ENV['MANDRILL_USER'], password: ENV['MANDRILL_PASS'] }
+  MANDRILL = { MANDRILL_USERNAME: ENV['MANDRILL_USER'],
+               MANDRILL_PASSWORD: ENV['MANDRILL_PASS'] }
 else
   MANDRILL = YAML.load(File.read(File.expand_path('../mandrill.yml', __FILE__)))
   MANDRILL.merge! MANDRILL.fetch(Rails.env, {})

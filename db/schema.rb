@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150506224425) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "links", force: :cascade do |t|
     t.string   "short_url"
     t.string   "long_url"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150506224425) do
     t.integer  "user_id"
   end
 
-  add_index "links", ["short_url"], name: "index_links_on_short_url"
-  add_index "links", ["user_id"], name: "index_links_on_user_id"
+  add_index "links", ["short_url"], name: "index_links_on_short_url", using: :btree
+  add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

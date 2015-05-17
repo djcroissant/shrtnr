@@ -1,7 +1,7 @@
 development:
-  twitter_client_id: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
-  twitter_client_secret: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
+  TWITTER_CLIENT_ID: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
+  TWITTER_CLIENT_SECRET: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
 
 test:
-  twitter_client_id: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
-  twitter_client_secret: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
+  TWITTER_CLIENT_ID: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
+  TWITTER_CLIENT_SECRET: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
