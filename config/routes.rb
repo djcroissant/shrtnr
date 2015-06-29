@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :links, only: [:create, :show, :redirection, :destroy]
 
   get '/:id' => 'links#redirection', :as => :redirect_url
-  
+
   root 'sessions#direct'
 end

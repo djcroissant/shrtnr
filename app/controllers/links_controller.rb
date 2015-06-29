@@ -7,15 +7,16 @@ class LinksController < ApplicationController
   def create
     url = Link.find_by_long_url(params[:link][:long_url])
 
-    if url.blank?
+    if url.blank?  #i.e. url DID NOT already exists in Link model
       if signed_in?
         @link = current_user.links.build(link_params)
       else
         @link = Link.new(link_params)
       end
-    else
+    else  #i.e. url DID already exist
       if signed_in?
-        @link = current_user.links.build(link_params)
+        flash[:error] = "This link already exists"
+        redirect_to root_path and return
       else
         redirect_to link_path(url.short_url)
         return

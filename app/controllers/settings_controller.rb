@@ -9,7 +9,7 @@ class SettingsController < ApplicationController
 
   def update
     @settings = current_user
-    if @settings.update_attributes(settings_params)
+    if settings_params[:email] =~ /^.+@.+$/ && @settings.update_attributes(settings_params)
       redirect_to settings_url, notice: "Successfully updated settings"
     else
       redirect_to settings_url, alert: "Failed to update settings"

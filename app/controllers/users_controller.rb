@@ -5,10 +5,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    unless user_params[:email] =~ /^.+@.+$/
+      flash[:alert] = 'Invalid Email'
+      render new_user_path and return
+    end
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url, notice: "You have signed up"
     else
+      flash[:alert] = 'Error, Try Again'
       render "new"
     end
   end

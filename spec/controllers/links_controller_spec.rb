@@ -28,9 +28,9 @@ describe LinksController, type: :controller do
       expect { post :create, link: attrs }.to change(user.links, :count).by(1)
     end
 
-    it "changes count if long_url exists" do
+    it "does not change count if long_url exists" do
       post :create, link: attrs
-      expect { post :create, link: attrs }.to change(user.links, :count).by(1)
+      expect { post :create, link: attrs }.to change(user.links, :count).by(0)
     end
   end
 
