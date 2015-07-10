@@ -35,8 +35,8 @@ describe SettingsController, type: :controller do
       end
 
       it "redirects to the settings page" do
-        subject { post :update, :settings => {name: "New Name", email: "new@email.com"} }
-        expect(subject).to redirect_to(settings_url)
+        post :update, :settings => {name: "New Name", email: "new@email.com"}
+        expect(response).to redirect_to(settings_url)
       end
     end
 
@@ -50,8 +50,8 @@ describe SettingsController, type: :controller do
       end
 
       it "redirects to the setting page" do
-        subject { post :update, :settings => {name: "New Name", email: "bad_email"} }
-        expect(subject).to redirect_to(settings_url)
+        post :update, :settings => {name: "New Name", email: "bad_email"}
+        expect(response).to redirect_to(settings_url)
       end
     end
   end
