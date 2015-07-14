@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   get '/:id' => 'links#redirection', :as => :redirect_url
 
   root 'sessions#direct'
+
+  #This is added for Omniauth.  Will need to update once I get started
+  #looking at the Twitter specific documentation
+  get '/auth/:provider/callback', to: 'sessions#create_twitter'
 end

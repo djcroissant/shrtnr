@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bcrypt-ruby'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug'
@@ -25,4 +27,3 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
-

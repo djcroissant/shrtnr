@@ -28,4 +28,20 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: "You have been logged out."
   end
+
+#This is created for OmniAuth.  Not really sure what all is going on,
+#but come back and look again after starting Twitter specific documentation
+  def create_twitter
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to dashboard_path, notice: "You have been logged in using Twitter."
+  end
+
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
+
 end
