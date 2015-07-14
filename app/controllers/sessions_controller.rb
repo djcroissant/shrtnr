@@ -43,3 +43,9 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: "You have been logged out."
   end
 end
+
+
+#Do I need to have something like this?
+# def auth_hash
+#   request.env['omniauth.auth']
+# end
