@@ -9,9 +9,10 @@ class User < ActiveRecord::Base
 
   def self.from_twitter(auth)
     create! do |user|
-      user.name = auth.info.nickname
+      user.name = auth.info.name
       user.uid = auth.uid
       user.password = SecureRandom.hex
+      user.provider = auth.provider
     end
   end
 end
