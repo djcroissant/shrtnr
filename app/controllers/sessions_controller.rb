@@ -52,8 +52,8 @@ class SessionsController < ApplicationController
 
       current_user = User.where(id: session[:user_id]).first
       twitter_user = User.where(uid: auth["uid"]).first
-      current_user.uid = twitter_user.uid
       current_user.name = twitter_user.name
+      current_user.uid = twitter_user.uid
       current_user.provider = twitter_user.provider
       current_user.save
       twitter_user.links.each { |l| l.update user_id: current_user.id }

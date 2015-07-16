@@ -73,6 +73,40 @@ describe SessionsController, type: :controller do
     end
   end
 
+
+
+  describe '#twitter - linking account' do
+    context "Either no Twitter account for uid exists OR
+             Twitter account already linked to current session id" do
+      it "replaces current name with Twitter name" do
+        #I want to create a user.  Then get :twitter and pass in different name.  Then check that user
+        #got overwritten with the Twitter name
+
+        # user = User.new(id: 555, name: 'username', uid: '12345')
+        # user.save
+        # OmniAuth.config.add_mock(:twitter, { uid: '12345',  info: { name: 'twitter_user' } })
+        # request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+        # get :twitter#, nil, {user_id: 555}
+        # expect(user.name).to eq "twitter_user"
+      end
+      it "sets uid to match Twitter account"
+      it "sets provider to :twitter"
+
+    end
+
+    context 'Twitter account for uid already exists, but with different user_id' do
+      it "replaces current name with Twitter name"
+      it "sets uid to match Twitter account"
+      it "sets provider to :twitter"
+      it "adds links from Twitter account to current account"
+      it "deletes instance of User that was associated with Twitter uid but under
+          a different user_id"
+    end
+  end
+
+
+
+
   describe "#destroy" do
 
     before do

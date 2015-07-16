@@ -4,7 +4,7 @@ describe User do
 
   let(:user) { create(:user) }
   let(:auth) { OmniAuth.config.add_mock(:twitter, { uid: '12345',
-                                                    info: { nickname: 'test_user' }
+                                                    info: { name: 'test_user' }
                                                   }) }
   it "has a valid factory" do
     expect(user).to be_valid
