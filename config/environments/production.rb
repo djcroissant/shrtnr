@@ -72,7 +72,7 @@ Rails.application.configure do
     :user_name => MANDRILL['username'],
     :password  => MANDRILL['password'],
     :authentication => 'login',
-    :domain => 'benwoodall.com',
+    :domain => 'gmail.com',
   }
 
 

@@ -1,7 +1,7 @@
 development:
-  client_id: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
-  client_secret: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
+  client_id: 'p3BAJ0y0W2TywjCStJUpk9etw'
+  client_secret: 'CfLOX9jn3HWSw1r51WF2Y0OAarAprtVeRiU4pgosq7vAd9y1nj'
 
 test:
-  client_id: 'PAQomNOuXDaaE0JKTFOlh4zgZ'
-  client_secret: 'F8X9VMLbYd9RoAepsCcBUnHjEDsez5QLZVT3A8jKHZ04H83r3x'
+  client_id: 'p3BAJ0y0W2TywjCStJUpk9etw'
+  client_secret: 'CfLOX9jn3HWSw1r51WF2Y0OAarAprtVeRiU4pgosq7vAd9y1nj'

@@ -7,7 +7,7 @@ describe UserMailer, :type => :mailer do
     let(:mail) { UserMailer.welcome_email(user) }
 
     it "renders the correct headers" do
-      expect(mail.from).to include "mail@benwoodall.com"
+      expect(mail.from).to include "derek.covey@gmail.com"
       expect(mail.to).to include user.email
       expect(mail.subject).to include "Welcome to Shortener!"
     end

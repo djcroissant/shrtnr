@@ -1,10 +1,10 @@
-class UserMailer < ApplicationMailer
+class SettingsMailer < ApplicationMailer
   default from: "derek.covey@gmail.com"
 
-  def welcome_email(user)
+  def settings_email(user)
     attachments.inline['logo.png'] = File.read("#{Rails.root}/public/assets/logo.png")
     @user = user
-    mail(to: user.email, subject: "Welcome to Shortener!")
+    mail(to: user.email, subject: "Shrtnr Settings Updated")
   end
 
 end
