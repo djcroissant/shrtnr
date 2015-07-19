@@ -10,7 +10,7 @@ class SettingsController < ApplicationController
   def update
     @settings = current_user
     if @settings.update_attributes(settings_params)
-      SettingsMailer.update_email(@user).deliver_now
+      SettingsMailer.update_email(@settings).deliver_now
       redirect_to settings_url, notice: "Successfully updated settings"
     else
       redirect_to settings_url, alert: "Failed to update settings"

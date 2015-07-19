@@ -3,6 +3,7 @@ require 'spec_helper'
 describe SettingsController, type: :controller do
 
   let(:user) { create(:user) }
+  let(:attributes) { attributes_for :user }
 
   describe "#index" do
     context "when not signed in" do
@@ -38,6 +39,13 @@ describe SettingsController, type: :controller do
       put :update, settings: attrs
       expect(assigns(:settings).name).to eq attrs[:name]
       expect(assigns(:settings).email).to eq attrs[:email]
+    end
+
+    it "sends update email" do
+      attrs = { name: "New Name", email: "new@email.com" }
+      expect {
+        put :update, settings: attrs
+      }.to change(ActionMailer::Base.deliveries, :count).by(1)
     end
   end
 end
