@@ -16,6 +16,10 @@ class Link < ActiveRecord::Base
     long_url
   end
 
+  def as_json(options={})
+    super( { only: [:short_url, :long_url, :clicks, :user]}.merge(options))
+  end
+
   private
 
     def build_short_url

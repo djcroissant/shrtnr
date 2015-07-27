@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/settings' => 'settings#index', as: :settings
   post '/settings' => 'settings#update'
 
+  post '/settings/update_api' => 'settings#update_api', as: :update_api
+
   resources :links, only: [:create, :show, :redirection, :destroy]
 
   get '/:id' => 'links#redirection', as: :redirect_url
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'links/create'
+      get 'links/show'
+      get 'users/show'
     end
   end
 

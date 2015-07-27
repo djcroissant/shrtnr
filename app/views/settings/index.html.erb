@@ -27,6 +27,7 @@
         <h4 class="text-center">To use with other apps</h4>
         <h6 class="text-center">Copy & Paste the following into your app:</h6>
         <pre class="text-center">http://localhost:3000/api/v1/links/create?api_key=<%= @settings.api_key %>&url=%@</pre>
+        <%= button_to "Generate New API Key", update_api_path, data: {confirm: "Are you sure?  This will invalidate previous keys."} %>
       </div>
       <br />
     </div>
