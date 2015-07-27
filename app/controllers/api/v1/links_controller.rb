@@ -17,11 +17,15 @@ class Api::V1::LinksController < Api::BaseController
     #http://localhost:3000/api/v1/links/show?url=%@
     #the request will replace %@ with the shortened link
     @link = Link.find_by(short_url: params[:url])
-    render json: {
-                  short_url: @link.short_url,
-                  long_url: @link.long_url,
-                  clicks: @link.clicks,
-                  user: { name: @link.user.name, email: @link.user.email }
-                  }
+    if @link.nil?
+      render json: { errors: "That short_url doesn't exist!" }
+    else
+      render json: {
+                    short_url: @link.short_url,
+                    long_url: @link.long_url,
+                    clicks: @link.clicks,
+                    user: { name: @link.user.name, email: @link.user.email }
+                    }
+    end
   end
 end
