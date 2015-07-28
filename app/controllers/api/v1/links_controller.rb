@@ -14,7 +14,7 @@ class Api::V1::LinksController < Api::BaseController
   end
 
   def show
-    #http://localhost:3000/api/v1/links/show?url=%@
+    #http://localhost:3000/api/v1/links/show?api=%@&url=%@
     #the request will replace %@ with the shortened link
     @link = Link.find_by(short_url: params[:url])
     if @link.nil?

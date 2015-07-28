@@ -18,8 +18,8 @@ class SettingsController < ApplicationController
 
   def update_api
     @settings = current_user
-    current_user.generate_api_key
-    current_user.save
+    @settings.generate_api_key
+    @settings.save
     redirect_to settings_url, notice: "Successfully updated API key"
   end
 
