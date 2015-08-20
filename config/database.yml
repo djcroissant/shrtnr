@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: shrtnr_development
+  database: uwshrtnr_dev
 
 test:
   <<: *default
-  database: shrtnr_test
+  database: uwshrtnr_test
 
 production:
   <<: *default
-  database: shrtnr_production
+  database: uwshrtnr_prod
